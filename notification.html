@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>notification</title>
+		<link rel="stylesheet" href="css/notification.css" />
+	</head>
+
+	<body>
+		<ul class="list" id="list">
+			<li>Info</li>
+			<li>success</li>
+			<li>Warning</li>
+			<li>Error</li>
+		</ul>
+		<div class="result">
+			<span class="appear" id="appear">
+				<!--<div class="ani" id="ani">
+					<img src="img/success.png" alt="" />
+					<div class="insideR">
+						<span class="close" id="close">X</span>
+			<h4>dsds</h4>
+			<p class="content">dsdsdsdadadasdasdasdasadsdsdsdadadasdasdasdasa</p>
+		</div>
+		</div>-->
+		</span>
+		</div>
+		<script type="text/javascript">
+			let list = document.getElementById("list");
+			let appear = document.getElementById('appear');
+			let lis = list.getElementsByTagName("li");
+			let close = document.getElementById("close");
+			let ani = document.getElementById("ani");
+			let index = 0;
+			let bol = true;
+			for(let i = 0; i < lis.length; i++) {
+				lis[i].index = i;
+				lis[i].addEventListener("click", function() {
+					let newLi = document.createElement("div");
+					let sth = document.createElement("div");
+					let img = document.createElement("img");
+					let span = document.createElement("span");
+					let tit = document.createElement("h4");
+					let para = document.createElement("p");
+
+					for(let i = 0; i < lis.length; i++) {
+						console.log(lis.length);
+						appear.style.color = "gray";
+					}
+
+					if(this.index == 0) {
+						newLi.appendChild(sth);
+						newLi.appendChild(img);
+						img.setAttribute("src", "img/gantan.png");
+						sth.appendChild(span);
+						sth.appendChild(tit);
+						sth.appendChild(para);
+						sth.setAttribute("class", "insideR");
+						span.setAttribute("class", "close");
+						span.setAttribute("id", "close");
+						span.innerHTML = "X";
+						tit.innerHTML = "sdsds";
+						para.setAttribute("class", "content");
+						para.innerHTML = "I am Info";
+					} else if(this.index == 1) {
+						newLi.appendChild(sth);
+						newLi.appendChild(img);
+						img.setAttribute("src", "img/success.png");
+						sth.appendChild(span);
+						sth.appendChild(tit);
+						sth.appendChild(para);
+						sth.setAttribute("class", "insideR");
+						span.setAttribute("class", "close");
+						span.setAttribute("id", "close");
+						span.innerHTML = "X";
+						tit.innerHTML = "sdsds";
+						para.setAttribute("class", "content");
+						para.innerHTML = "I am Success";
+					} else if(this.index == 2) {
+						newLi.appendChild(sth);
+						newLi.appendChild(img);
+						img.setAttribute("src", "img/warn.png");
+						sth.appendChild(span);
+						sth.appendChild(tit);
+						sth.appendChild(para);
+						sth.setAttribute("class", "insideR");
+						span.setAttribute("class", "close");
+						span.setAttribute("id", "close");
+						span.innerHTML = "X";
+						tit.innerHTML = "sdsds";
+						para.setAttribute("class", "content");
+						para.innerHTML = "I am Warning";
+					} else if(this.index == 3) {
+						newLi.appendChild(sth);
+						newLi.appendChild(img);
+						img.setAttribute("src", "img/err.png");
+						sth.appendChild(span);
+						sth.appendChild(tit);
+						sth.appendChild(para);
+						sth.setAttribute("class", "insideR");
+						span.setAttribute("class", "close");
+						span.setAttribute("id", "close");
+						span.innerHTML = "X";
+						tit.innerHTML = "sdsds";
+						para.setAttribute("class", "content");
+						para.innerHTML = "I am Error";
+					}
+
+					appear.appendChild(newLi);
+					newLi.setAttribute("class", "ani");
+					newLi.setAttribute("id", "ani" + i);
+
+					span.addEventListener("click", function() {
+						newLi.style.height = 0 + "px";
+						//						newLi.style.opacity=0;
+						if(newLi.innerHTML) {
+							appear.removeChild(newLi);
+						} else {
+							return;
+						}
+					})
+
+					setTimeout(function() {
+						newLi.style.height = 0 + "px";
+						//						newLi.style.opacity=0;
+						setTimeout(function() {
+							if(document.getElementById("appear")) {
+								const tobedeleted = document.getElementById('ani' + i)
+								if(tobedeleted) {
+									appear.removeChild(newLi);
+								}
+							} else {
+								return;
+							}
+						}, 100)
+					}, 4500);
+				});
+			}
+		</script>
+	</body>
+
+</html>
